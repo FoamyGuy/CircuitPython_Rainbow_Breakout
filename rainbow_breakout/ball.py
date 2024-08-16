@@ -36,7 +36,18 @@ class Ball():
             self.speed_x *= -1
 
         if self.bottom >= game.display_size[1]:
-            self.speed_y *= -1
+            #self.speed_y *= -1
+            self.speed_x = 0
+            self.speed_y = 0
+            game.lives -= 1
+
+            if game.lives == -1:
+                game.state = game.STATE_GAME_OVER
+            else:
+                self.x = 120
+                self.y = 200
+                game.state = game.STATE_WAITING_TO_START
+
         if self.top <= 0:
             self.speed_y *= -1
 

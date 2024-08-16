@@ -25,12 +25,20 @@ class Brick:
                     ball.speed_x *= -1
                     game.bricks.remove(self)
                     game.remove(self.shape)
+                    if self.shape.color_index == ball.shape.color_index:
+                        game.score += 25
+                    else:
+                        game.score += 5
                     return True
                 elif colliding[1] in (Brick.SIDE_TOP, Brick.SIDE_BOTTOM):
                     ball.speed_y *= -1
                     game.bricks.remove(self)
                     game.remove(self.shape)
-                return True
+                    if self.shape.color_index == ball.shape.color_index:
+                        game.score += 25
+                    else:
+                        game.score += 5
+                    return True
         return False
 
 
@@ -41,8 +49,6 @@ class Brick:
         #         self.top - ball.radius <= cy <= self.bottom + ball.radius:
 
         if self.shape.intersects(ball.shape):
-
-
 
             # left edge
             if self.left - ball.radius <= cx <= self.left:

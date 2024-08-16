@@ -2,7 +2,7 @@ import math
 
 from vectorio import Rectangle
 from .colors import palette
-from game_controls import game_controls
+
 
 
 class Paddle():
@@ -11,10 +11,10 @@ class Paddle():
         self.shape.color_index = color_index
         self.speed_x = 0
         self.speed = 2
-        self.prev_state = game_controls.button
+        self.prev_state = None
 
     def tick(self, game):
-        cur_state = game_controls.button
+        cur_state = game.game_controls.button
         #print(f"right: {self.right} <= {game.display_size[0]}: {self.right <= game.display_size[0]}")
         if cur_state['right']:
             if self.right <= game.display_size[0]:
@@ -28,7 +28,7 @@ class Paddle():
             else:
                 self.speed_x = 0
 
-        if cur_state['b'] and not self.prev_state['b']:
+        if cur_state['b'] and self.prev_state is not None and not self.prev_state['b']:
             print(f"b: {cur_state['b']} prev_b: {self.prev_state['b']}")
 
             self.shape.color_index = (self.shape.color_index + 1) % len(palette)
