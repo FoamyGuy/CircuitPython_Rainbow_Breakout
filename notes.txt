@@ -1,0 +1,21 @@
+Rainbow Breakout Ideas
+
+[x] Score keeping and UI
+    [x] bonus points for color match
+[x] Lives functionality and UI
+[x] Ball Trajectory
+
+[ ] show balls instead of label for lives
+[ ] random first shot angle if you haven't moved paddle
+[ ] extra lives when you pass certain score thresholds
+
+[ ] different levels
+
+[ ] power ups
+    [ ] dotted lines angle aiming helper power up
+    [ ] cannonball - makes the ball go thru bricks without bouncing
+    [ ] laser - shoot laser from the paddle that breaks bricks
+    [ ] multi ball
+    [ ] bigger paddle
+
+

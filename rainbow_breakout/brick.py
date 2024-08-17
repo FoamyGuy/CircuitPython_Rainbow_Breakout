@@ -22,18 +22,18 @@ class Brick:
             if colliding[0]:
                 print(f"ball is colliding side is: {colliding[1]}")
                 if colliding[1] in (Brick.SIDE_LEFT, Brick.SIDE_RIGHT):
-                    ball.speed_x *= -1
+                    ball.speed_ratio[1] *= -1
                     game.bricks.remove(self)
-                    game.remove(self.shape)
+                    game.game_group.remove(self.shape)
                     if self.shape.color_index == ball.shape.color_index:
                         game.score += 25
                     else:
                         game.score += 5
                     return True
                 elif colliding[1] in (Brick.SIDE_TOP, Brick.SIDE_BOTTOM):
-                    ball.speed_y *= -1
+                    ball.speed_ratio[0] *= -1
                     game.bricks.remove(self)
-                    game.remove(self.shape)
+                    game.game_group.remove(self.shape)
                     if self.shape.color_index == ball.shape.color_index:
                         game.score += 25
                     else:
